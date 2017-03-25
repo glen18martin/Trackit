@@ -35,7 +35,7 @@ myApp.onPageInit('login', function (page) {
    var password = $$('#register-password').val();
 	
    if (!username || !password){
-    myApp.alert('Please fill in all Registration form fields');
+    myApp.alert('Please fill in all Login form fields','Trackit');
     return;
    }
 
@@ -43,7 +43,6 @@ myApp.onPageInit('login', function (page) {
 
    // Do something here for "about" page
    var query = 'http://localhost:81/Trackit/login.php';
-   var postdata = {};
 
    
 	var dataString="username="+username+"&password="+password+"&login=";
@@ -79,7 +78,7 @@ success: function(data){
 if(data=="success")
 {
 localStorage.login="true";
-localStorage.email=email;
+localStorage.username=username;
 window.location.href = "index.html";
 }
 else if(data="failed")
@@ -123,12 +122,12 @@ $$(document).on('pageInit', function (e) {
 
     if (page.name === 'about') {
         // Following code will be executed for page with data-page attribute equal to "about"
-        myApp.alert('Here comes About page');
+      //  myApp.alert('Here comes About page');
     }
 })
 
 // Option 2. Using live 'pageInit' event handlers for each page
 $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
-    myApp.alert('Here comes About page');
+    //myApp.alert('Here comes About page');
 })

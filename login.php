@@ -1,10 +1,25 @@
 <?php
-if(isset($_GET['login']))
+
+// establishing the MySQLi connection
+
+ 
+
+$con = mysqli_connect('localhost','root','','trackit');
+
+if (mysqli_connect_errno())
+
 {
-	echo "asdasda";
-$username=mysql_real_escape_string(htmlspecialchars(trim($_POST['username'])));
-$password=mysql_real_escape_string(htmlspecialchars(trim($_POST['password'])));
-$login=mysql_num_rows(mysql_query("select * from `conductor` where `username`='$username' and `password`='$password'"));
+
+echo "MySQLi Connection was not established: " . mysqli_connect_error();
+
+}
+
+
+if(isset($_POST['login']))
+{
+$username=mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['username'])));
+$password=mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['password'])));
+$login=mysqli_num_rows(mysqli_query($con,"select * from `conductor` where `username`='$username' and `password`='$password'"));
 if($login!=0)
 {
 echo "success";
