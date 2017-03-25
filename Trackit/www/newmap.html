@@ -1,100 +1,110 @@
-
-
 <!DOCTYPE html>
+
 <html>
-  <head>
+
+<head>
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src * data: 'unsafe-inline'">
     <style>
-      /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-  </head>
-  <body id="demo">
+</head>
+
+<body id="demo">
     <div id="map"></div>
     <script>
-      var map,marker;
-      function initMap() {
-        var lat = 19.069238;
-        var lng = 72.898302;
-        var From= "ABC";
-        var To="XYZ";
-        var busno=53;
-        map = new google.maps.Map(document.getElementById('map'), {
+        var map, marker;
 
-          center: {lat: lat, lng: lng},
-          zoom: 13
+        function initMap() {
+            var lat = 19.069238;
+            var lng = 72.898302;
+            var From = "ABC";
+            var To = "XYZ";
+            var busno = 53;
+            map = new google.maps.Map(document.getElementById('map'), {
 
-        });
-		 //var mapOptions = {center: myCenter, zoom: 5};
-		//var map = new google.maps.Map(mapCanvas, mapOptions);
-		marker = new google.maps.Marker({position:map.center});
-		marker.setMap(map);
-    getLocation();
-    
-    
+                center: {
+                    lat: lat,
+                    lng: lng
+                },
+                zoom: 13
 
-		var infowindow = new google.maps.InfoWindow({
-		//content: "Bus No: "+busno+"\n\n From: "+From+" To: "+To
-    content: '<p>Bus No: ' + busno + '\n</p>'+'<p>From: ' + From + '</p>' + '<p> To: ' + To + '</p>'
+            });
+            //var mapOptions = {center: myCenter, zoom: 5};
+            //var map = new google.maps.Map(mapCanvas, mapOptions);
+            marker = new google.maps.Marker({
+                position: map.center
+            });
+            marker.setMap(map);
+            getLocation();
 
-		});
-		infowindow.open(map,marker);
-      }
 
+
+            var infowindow = new google.maps.InfoWindow({
+                //content: "Bus No: "+busno+"\n\n From: "+From+" To: "+To
+                content: '<p>Bus No: ' + busno + '\n</p>' + '<p>From: ' + From + '</p>' + '<p> To: ' + To + '</p>'
+
+            });
+            infowindow.open(map, marker);
+        }
     </script>
 
     <script type="text/javascript">
-      var x = document.getElementById("demo");
+        var x = document.getElementById("demo");
 
-      function getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition, showError);
-          } else {
-              x.innerHTML = "Geolocation is not supported by this browser.";
-          }
-      }
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
 
-      function showPosition(position) {
-          var latlon = position.coords.latitude + "," + position.coords.longitude;
-          console.log(latlon);
-          marker.setPosition(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-          map.panTo(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-          // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ";
-          // document.getElementById("map").innerHTML = "<img src='"+img_url+"'>";
-      }
-      
+        function showPosition(position) {
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+            console.log(latlon);
+            marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ";
+            // document.getElementById("map").innerHTML = "<img src='"+img_url+"'>";
+        }
 
-      function showError(error) {
-          switch(error.code) {
-              case error.PERMISSION_DENIED:
-                  x.innerHTML = "User denied the request for Geolocation."
-                  break;
-              case error.POSITION_UNAVAILABLE:
-                  x.innerHTML = "Location information is unavailable."
-                  break;
-              case error.TIMEOUT:
-                  x.innerHTML = "The request to get user location timed out."
-                  break;
-              case error.UNKNOWN_ERROR:
-                  x.innerHTML = "An unknown error occurred."
-                  break;
-          }
-      }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap" async defer></script>
     <script src="js/geocal.js"></script>
 
-  </body>
+</body>
+
 </html>

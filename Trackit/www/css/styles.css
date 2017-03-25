@@ -14,14 +14,46 @@
     background: #000000;
 }
 
-  /* Always set the map height explicitly to define the size of the div
+.navbar {
+    background: #E84A5A;
+    color: #000000;
+    font-weight: bold;
+}
+
+.toolbar {
+    background: #E84A5A;
+    color: #000000;
+    font-weight: bold;
+}
+
+.page-content {
+    background: #2a363b;
+    color: white;
+    font-weight: bold;
+}
+
+a {
+    color: #fecea8
+}
+
+
+/* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
-  #map {
+
+#map {
     height: 100%;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
+}
+
+.panel {
+    background-color: black;
+}
