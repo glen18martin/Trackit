@@ -34,7 +34,7 @@ while($stopno < 4) {
         $stopno++;
         if($stopno == 5) {
             $stops = array_reverse($stops);
-            $stopno = 0;
+            $stopno = -1;
         }
     }
 
