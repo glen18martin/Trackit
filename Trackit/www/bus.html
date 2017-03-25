@@ -28,6 +28,21 @@
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
 
+    <style>
+        #loading {
+            -webkit-animation: rotation 2s infinite linear;
+        }
+        
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+    </style>
+
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
 
@@ -81,12 +96,10 @@
                     <div class="page-content">
                         <div class="content-block">
                             <center>
-                            <br><br><br>
-                            <p>Page content goes here</p>
-                            <img src="images/bus.jpg" style="width: 150px; height: 150px">
-                            <!-- Link to another page --><br>
-                            <br>
-                            <a href="about.html">About app</a>
+                                <br><br><br><br><br><br>
+
+                                <img src="img/bus1.png" style="width: 270px; height: 200px; position:absolute;left: 12%">
+
                             </center>
                         </div>
                     </div>
