@@ -12,8 +12,11 @@ $stops = array(
     array(19.062541, 72.846471, "Govt Col 10")
 );
 
+file_put_contents("bus.route", json_encode($stops));
+
 
 $stopno = 0;
+$dir = 0;
 $lat = $stops[$stopno][0];
 $lng = $stops[$stopno][1];
 
@@ -25,7 +28,14 @@ while($stopno < 4) {
     else $lng -= 0.00001;
 
     if(sprintf('%0.4f', $lat) == sprintf('%0.4f', $stops[$stopno + 1][0])  && sprintf('%0.4f', $lng) == sprintf('%0.4f', $stops[$stopno + 1][1])) {
+        echo "STOP!<br/>";
+        sleep(10);
+        
         $stopno++;
+        if($stopno == 5) {
+            $stops = array_reverse($stops);
+            $stopno = 0;
+        }
     }
 
     file_put_contents("bus.pos", "$lat,$lng");
