@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.gg.Trackit"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.gg.Trackit"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.gg.Trackit"
+        }
+    },
+    "dependent_plugins": {}
+}
