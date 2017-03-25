@@ -27,7 +27,8 @@ while($stopno < 4) {
     if(sprintf('%0.4f', $lat) == sprintf('%0.4f', $stops[$stopno + 1][0])  && sprintf('%0.4f', $lng) == sprintf('%0.4f', $stops[$stopno + 1][1])) {
         $stopno++;
     }
-    
+
+    file_put_contents("bus.pos", "$lat, $lng");
 
 
 }
