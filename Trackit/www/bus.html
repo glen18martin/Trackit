@@ -20,8 +20,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;">
-
 
     <!-- Your app title -->
     <title>My App</title>
@@ -30,10 +28,26 @@
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
 
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <style>
+        #loading {
+            -webkit-animation: rotation 2s infinite linear;
+        }
+        
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
@@ -49,7 +63,11 @@
             <a href="login.html">
                 <p>Login</p>
             </a>
+            <a href- "newmap.html">
+                <p>Map</p>
+            </a>
         </div>
+
     </div>
 
     <!-- Views -->
@@ -60,7 +78,7 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding"></div>
+                    <div class="center sliding">Trackit App</div>
                     <div class="right">
                         <!--
                           Right link contains only icon - additional "icon-only" class
@@ -76,12 +94,13 @@
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <div class="content-block" style="height:78%;">
-                          <br>
-                          <br>
-                          <iframe style="width:100%; height:100%" src="./newmap.html" >
-  <p>Your browser does not support iframes.</p>
-</iframe>
+                        <div class="content-block">
+                            <center>
+                                <br><br><br><br><br><br>
+
+                                <img src="img/bus1.png" style="width: 270px; height: 200px; position:absolute;left: 12%">
+
+                            </center>
                         </div>
                     </div>
                 </div>
@@ -90,8 +109,8 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
+                    <a href="testing.html" class="link">testing</a>
+
                 </div>
             </div>
         </div>
@@ -100,10 +119,6 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script type="text/javascript" src="js/geo.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap"
-    async defer></script>
 </body>
 
 </html>
