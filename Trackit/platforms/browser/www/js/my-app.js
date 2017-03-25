@@ -26,7 +26,66 @@ myApp.onPageInit('about', function (page) {
 })
 
 myApp.onPageInit('login', function (page) {
-    // Do something here for "about" page
+
+
+
+  $$('#submmit-register').on('click', function () {
+
+   var username = $$('#register-username').val();
+   var password = $$('#register-password').val();
+
+   if (!username || !password){
+    myApp.alert('Please fill in all Registration form fields');
+    return;
+   }
+
+
+
+   // Do something here for "about" page
+   var query = '10.0.4.136:3000/login';
+   var postdata = {};
+
+   postdata.username = username;
+   postdata.password = password;
+
+   myApp.showIndicator();
+
+   $$.ajax({
+    url: query,
+    //headers: {"X-Parse-Application-Id":applicationId,"X-Parse-REST-API-Key":restApiKey},
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(postdata),
+    statusCode: {
+     201: success201,
+     400: notsuccess,
+     500: notsuccess
+    }
+   });
+
+
+  });
+
+
+var success201 = function(data, textStatus, jqXHR) {
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ // Will pass context with retrieved user name
+ // to welcome page. Redirect to welcome page
+ mainView.router.load({
+ template: Template7.templates.welcomeTemplate,
+  context: {
+   name: username
+  }
+ });
+};
+
+var notsuccess = function(data, textStatus, jqXHR) {
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ myApp.alert('Login was unsuccessful, please try again');
+};
+
 
 })
 
