@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -28,8 +27,8 @@
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
 
-    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -73,9 +72,28 @@
                     <!-- Scrollable page content -->
                     <div class="page-content">
                         <div class="content-block">
-                            <p>Page content goes here</p>
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a>
+                            <!-- <p>Page content goes here</p>
+                            Link to another page
+                            <a href="about.html">About app</a> -->
+                            <form name="post" action="form.php"method="post">
+
+                            <fieldset>
+                            <legend><b>Personal Information</b></legend>
+                            <font color="blue"><b>User-Name: <input type="username" size="14" maxlength="10" max="10" min="4" name="user" placeholder="username" ></input></b>
+                            <p></p>
+                            <font color="blue"><b>
+                            Password: 
+                            <input type="password" size="14" maxlength="12 max="12" min="" name="pass" placeholder="password" ></input></b>
+                            <p></p>
+                            <font color="black"><b>
+                            <input type="hidden" name="time" id="time" value="">
+                            <input type="submit" value="Click to Submit" onclick="checkin();"></input></b><br>
+                            
+                            </fieldset></form>
+                            <fieldset>
+                            <p>New Here?</p>
+                            <a href="create.html"><button>Create a new ID</button></a>
+                            </fieldset>
                         </div>
                     </div>
                 </div>
