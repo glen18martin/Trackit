@@ -72,9 +72,28 @@
                     <!-- Scrollable page content -->
                     <div class="page-content">
                         <div class="content-block">
-                            <p>Page content goes here</p>
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a>
+                            <!-- <p>Page content goes here</p>
+                            Link to another page
+                            <a href="about.html">About app</a> -->
+                            <form name="post" action="form.php"method="post">
+
+                            <fieldset>
+                            <legend><b>Personal Information</b></legend>
+                            <font color="blue"><b>User-Name: <input type="username" size="14" maxlength="10" max="10" min="4" name="user" placeholder="username" ></input></b>
+                            <p></p>
+                            <font color="blue"><b>
+                            Password: 
+                            <input type="password" size="14" maxlength="12 max="12" min="" name="pass" placeholder="password" ></input></b>
+                            <p></p>
+                            <font color="black"><b>
+                            <input type="hidden" name="time" id="time" value="">
+                            <input type="submit" value="Click to Submit" onclick="checkin();"></input></b><br>
+                            
+                            </fieldset></form>
+                            <fieldset>
+                            <p>New Here?</p>
+                            <a href="create.html"><button>Create a new ID</button></a>
+                            </fieldset>
                         </div>
                     </div>
                 </div>
