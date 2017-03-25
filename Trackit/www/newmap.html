@@ -1,0 +1,37 @@
+<head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 19.069238, lng: 72.898302},
+          zoom: 13
+
+        });
+		 //var mapOptions = {center: myCenter, zoom: 5};
+		//var map = new google.maps.Map(mapCanvas, mapOptions);
+		var marker = new google.maps.Marker({position:map.center});
+		marker.setMap(map);
+
+		var infowindow = new google.maps.InfoWindow({
+		content: "Bus No:53"
+		});
+		infowindow.open(map,marker);
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap" async defer></script>
