@@ -46,18 +46,27 @@
     <script>
 
     $(document).ready(function() {
-       setTimeout(function() { 
+       setInterval(function() { 
 
          $.ajax({
             url: "bus.pos"
           }).done(function(data) {
-            var coords = data.split(",");
-            marker.setPosition(new google.maps.LatLng(parseInt(coords[0]), parseInt(coords[1])));
-            map.panTo(new google.maps.LatLng(parseInt(coords[0]), parseInt(coords[1])));
+            if(typeof data !== "undefined" || data.length > 1 || data != null || data != "") {
+                var coords = data.split(",");
+                if(coords[0] != "") {
+                  
+                    console.log(coords[0] + "," + coords[1]);
+                    marker.setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+                    map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+
+                }
+            
+            }
+            
           });
 
 
-    }, 1000);
+     }, 1000);
     });
    
 

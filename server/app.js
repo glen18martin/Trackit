@@ -19,6 +19,7 @@ var socket_io    = require( "socket.io");
 var io           = socket_io();
 app.io           = io;
 
+require('./sockets/base')(io);
 
 
 // view engine setup
