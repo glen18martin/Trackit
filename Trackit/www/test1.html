@@ -81,12 +81,53 @@
                     <div class="page-content">
                         <div class="content-block">
                             <center>
-                                <br><br><br>
-                                <p>Page content goes here</p>
-                                <img src="images/bus.jpg" style="width: 150px; height: 150px">
-                                <!-- Link to another page --><br>
-                                <br>
-                                <a href="about.html">About app</a>
+                                <!DOCTYPE html>
+                                <html>
+
+                                <head>
+                                    <title>Device Properties Example</title>
+
+                                    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+                                    <script type="text/javascript" charset="utf-8">
+                                        // Wait for device API libraries to load
+                                        //
+                                        document.addEventListener("deviceready", onDeviceReady, false);
+
+                                        var watchID = null;
+
+                                        // device APIs are available
+                                        //
+                                        function onDeviceReady() {
+                                            // Throw an error if no update is received every 30 seconds
+                                            var options = {
+                                                timeout: 30000
+                                            };
+                                            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+                                        }
+
+                                        // onSuccess Geolocation
+                                        //
+                                        function onSuccess(position) {
+                                            var element = document.getElementById('geolocation');
+                                            element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                                                'Longitude: ' + position.coords.longitude + '<br />' +
+                                                '<hr />' + element.innerHTML;
+                                        }
+
+                                        // onError Callback receives a PositionError object
+                                        //
+                                        function onError(error) {
+                                            alert('code: ' + error.code + '\n' +
+                                                'message: ' + error.message + '\n');
+                                        }
+                                    </script>
+                                </head>
+
+                                <body>
+                                    <p id="geolocation">Watching geolocation...</p>
+                                </body>
+
+                                </html>
                             </center>
                         </div>
                     </div>
@@ -96,7 +137,7 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
-                    <a href="test1.html" class="link">testing</a>
+                    <a href="testing.html" class="link">testing</a>
 
                 </div>
             </div>
@@ -105,7 +146,6 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
 
 </body>

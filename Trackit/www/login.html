@@ -1,23 +1,4 @@
 
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
-
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <!-- <p>Left panel content goes here</p> -->
-            <a href="login.html">
-                <p>Login</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
             <!-- Top Navbar-->
             <div class="navbar">
                 <div class="navbar-inner">
@@ -32,17 +13,73 @@
                     </div>
                 </div>
             </div>
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
+
                 <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
+                <div data-page="login" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <div class="content-block">
-                            <!-- <p>Page content goes here</p>
+
+						<div class="content-block-title"></div>
+						<div class="content-block">
+						<div class="content-block-inner">
+						<h3>Authorized Login</h3>
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">Username</div>
+                        <div class="item-input">
+                          <input id="register-username" type="email" placeholder="Username">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-password"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">Password</div>
+                        <div class="item-input">
+                          <input id="register-password" type="password" placeholder="Password">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+
+
+
+                <div class="row">
+
+                  <div class="col-50">
+                    <input id="submmit-register" type="submit" value="Submit" class="button button-big button-fill color-green">
+                  </div>
+                </div>
+
+						</div>
+			  </div>
+
+
+			  <div class="content-block-title"></div>
+						<div class="content-block">
+						<div class="content-block-inner">
+						<p> I'm a passenger</p>
+						<a href="#">go</a>
+						</div>
+						</div>
+						</div>
+
+						<!--<div class="content-block">
+                            <p>Page content goes here</p>
                             Link to another page
-                            <a href="about.html">About app</a> -->
-                            <form name="post" action="#" method="post">
+                            <a href="about.html">About app</a>
+                            <form action="#" method="post" class="ajax-submit">
 
                                 <center>
 
@@ -51,7 +88,7 @@
                                     <font color="blue"><b>User-Name: <input type="username" size="14" maxlength="10" max="10" min="4" name="user" placeholder="username" ></input></b>
                                         <p></p>
                                         <font color="blue"><b>
-                            Password: 
+                            Password:
                             <input type="password" size="14" maxlength="12 max="12" min="" name="pass" placeholder="password" ></input></b>
                                             <p></p>
                                             <font color="black"><b>
@@ -64,16 +101,6 @@
                             <a href="#"><button>GO!</button></a>
                             </center>
                         </div>
+						-->
                     </div>
                 </div>
-            </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                </div>
-            </div>
-        </div>
-    </div>
