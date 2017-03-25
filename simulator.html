@@ -18,9 +18,11 @@
     <h3>My Google Maps Demo</h3>
     <div id="map"></div>
     <script>
-      var map, marker;
+    let stops = [];
+      var map, marker, x = 0;
       function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
+       
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: uluru
@@ -32,10 +34,29 @@
         });
 
         
-        //marker.setPosition(new google.maps.LatLng(-24.397, 140.644));
+        for(var i = 0; i < 5; i++) {
+            var a = new google.maps.Marker({
+            position: uluru,
+            map: map
+            });
+
+            stops[x++] = a;
+
+        }
+        console.log(stops);
+        
 
 
       }
+
+      function plotStops(c) {
+        for(var i = 0; i < c.length; i++) {
+             console.log(stops);
+              stops[i].setPosition(new google.maps.LatLng(parseFloat(c[i][0]), parseFloat(c[i][1])));
+        }
+      }
+
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrC2-gH7Ov70zmKGDlpQJlu-bHj5Vm_ng&callback=initMap">
@@ -45,7 +66,22 @@
 
     <script>
 
+
     $(document).ready(function() {
+     
+     setTimeout(function() { 
+
+        $.ajax({
+            url: "bus.route"
+          }).done(function(data) {
+            var c = JSON.parse(data);
+            plotStops(c);
+            
+          });
+          
+     }, 3000);
+
+
        setInterval(function() { 
 
          $.ajax({
@@ -69,6 +105,7 @@
      }, 1000);
     });
    
+    
 
     </script>
   </body>
