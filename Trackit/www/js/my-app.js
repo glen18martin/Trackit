@@ -33,7 +33,7 @@ myApp.onPageInit('login', function (page) {
 
    var username = $$('#register-username').val();
    var password = $$('#register-password').val();
-
+	
    if (!username || !password){
     myApp.alert('Please fill in all Registration form fields');
     return;
@@ -42,32 +42,57 @@ myApp.onPageInit('login', function (page) {
 
 
    // Do something here for "about" page
-   var query = '10.0.4.136:3000/login';
+   var query = 'http://localhost:81/Trackit/login.php';
    var postdata = {};
 
-   postdata.username = username;
-   postdata.password = password;
-
+   
+	var dataString="username="+username+"&password="+password+"&login=";
    myApp.showIndicator();
 
+   /*
    $$.ajax({
     url: query,
     //headers: {"X-Parse-Application-Id":applicationId,"X-Parse-REST-API-Key":restApiKey},
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(postdata),
+    type: "GET",
+    data: dataString,
+	crossDomain: true,
+	cache: false,
     statusCode: {
      201: success201,
      400: notsuccess,
+	 404: myApp.alert("what"),
      500: notsuccess
     }
    });
 
+   */
 
-  });
+   
+$.ajax({
+type: "POST",
+url: query,
+data: dataString,
+crossDomain: true,
+cache: false,
+beforeSend: function(){ $("#login").html('Connecting...');},
+success: function(data){
+if(data=="success")
+{
+localStorage.login="true";
+localStorage.email=email;
+window.location.href = "index.html";
+}
+else if(data="failed")
+{
+myApp.hideIndicator();
+ myApp.alert('Login was unsuccessful, please try again','Trackit');
+}
+}
+});
 
-
+/*
 var success201 = function(data, textStatus, jqXHR) {
+	myApp.alert(data);
  // We have received response and can hide activity indicator
  myApp.hideIndicator();
  // Will pass context with retrieved user name
@@ -85,8 +110,8 @@ var notsuccess = function(data, textStatus, jqXHR) {
  myApp.hideIndicator();
  myApp.alert('Login was unsuccessful, please try again');
 };
-
-
+*/
+  });
 })
 
 
