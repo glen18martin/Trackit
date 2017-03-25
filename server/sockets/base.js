@@ -15,6 +15,14 @@ module.exports = function (io) {
 //secure: true,
 */
 
-}
+socket.on('connect', function(){
+console.log("client connected");
+});
 
-}
+      socket.on('disconnect', function(){
+console.log("client disconnected");
+});
+
+});
+
+};
