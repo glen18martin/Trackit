@@ -1,0 +1,66 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery-3.2.0.min.js"></script>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      var map, marker;
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon: 'http://icons.iconarchive.com/icons/icons8/ios7/32/Transport-Bus-icon.png'
+        });
+
+        
+        //marker.setPosition(new google.maps.LatLng(-24.397, 140.644));
+
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrC2-gH7Ov70zmKGDlpQJlu-bHj5Vm_ng&callback=initMap">
+    </script>
+
+
+
+    <script>
+
+    $(document).ready(function() {
+       setTimeout(function() { 
+
+         $.ajax({
+            url: "bus.pos"
+          }).done(function(data) {
+            var coords = data.split(",");
+            marker.setPosition(new google.maps.LatLng(parseInt(coords[0]), parseInt(coords[1])));
+            map.panTo(new google.maps.LatLng(parseInt(coords[0]), parseInt(coords[1])));
+          });
+
+
+    }, 1000);
+    });
+   
+
+    </script>
+  </body>
+</html>
