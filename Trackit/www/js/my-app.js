@@ -42,7 +42,7 @@ myApp.onPageInit('login', function (page) {
 
 
    // Do something here for "about" page
-   var query = 'https://api.parse.com/1/users';
+   var query = '10.0.4.136:3000/login';
    var postdata = {};
 
    postdata.username = username;
@@ -67,9 +67,24 @@ myApp.onPageInit('login', function (page) {
   });
 
 
+var success201 = function(data, textStatus, jqXHR) {
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ // Will pass context with retrieved user name
+ // to welcome page. Redirect to welcome page
+ mainView.router.load({
+ template: Template7.templates.welcomeTemplate,
+  context: {
+   name: username
+  }
+ });
+};
 
-
-
+var notsuccess = function(data, textStatus, jqXHR) {
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ myApp.alert('Login was unsuccessful, please try again');
+};
 
 
 })
