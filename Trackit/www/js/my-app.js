@@ -33,7 +33,7 @@ myApp.onPageInit('login', function (page) {
 
    var username = $$('#register-username').val();
    var password = $$('#register-password').val();
-
+	
    if (!username || !password){
     myApp.alert('Please fill in all Registration form fields');
     return;
@@ -42,7 +42,7 @@ myApp.onPageInit('login', function (page) {
 
 
    // Do something here for "about" page
-   var query = '10.0.4.136:3000/login';
+   var query = 'http://localhost:3000/api/login';
    var postdata = {};
 
    postdata.username = username;
@@ -53,12 +53,13 @@ myApp.onPageInit('login', function (page) {
    $$.ajax({
     url: query,
     //headers: {"X-Parse-Application-Id":applicationId,"X-Parse-REST-API-Key":restApiKey},
-    type: "POST",
+    type: "GET",
     contentType: "application/json",
     data: JSON.stringify(postdata),
     statusCode: {
      201: success201,
      400: notsuccess,
+	 404: myApp.alert("asda"),
      500: notsuccess
     }
    });
@@ -68,6 +69,7 @@ myApp.onPageInit('login', function (page) {
 
 
 var success201 = function(data, textStatus, jqXHR) {
+	myApp.alert("sddsdsdsasd");
  // We have received response and can hide activity indicator
  myApp.hideIndicator();
  // Will pass context with retrieved user name

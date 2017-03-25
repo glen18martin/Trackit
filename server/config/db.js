@@ -9,6 +9,9 @@ var pool = mysql.createPool({
     debug: false
 });
 
+
+module.exports = pool;
+
 /*
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -27,31 +30,6 @@ connection.connect(function(err){
  }
  });
 */
-
-exports.handle_database = function(req,res) {
-
-    pool.getConnection(function(err,connection){
-        if (err) {
-          connection.release();
-          res.json({"code" : 100, "status" : "Error in connection database"});
-          return;
-        }
-
-        console.log('connected as id ' + connection.threadId);
-
-        connection.query("select * from bus",function(err,rows){
-            connection.release();
-            if(!err) {
-                res.json(rows);
-            }
-        });
-
-        connection.on('error', function(err) {
-              res.json({"code" : 100, "status" : "Error in connection database"});
-              return;
-        });
-  });
-}
 
 /*
 module.exports = connection;
