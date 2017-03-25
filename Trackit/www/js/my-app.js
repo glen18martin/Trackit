@@ -26,7 +26,51 @@ myApp.onPageInit('about', function (page) {
 })
 
 myApp.onPageInit('login', function (page) {
-    // Do something here for "about" page
+
+
+
+  $$('#submmit-register').on('click', function () {
+
+   var username = $$('#register-username').val();
+   var password = $$('#register-password').val();
+
+   if (!username || !password){
+    myApp.alert('Please fill in all Registration form fields');
+    return;
+   }
+
+
+
+   // Do something here for "about" page
+   var query = 'https://api.parse.com/1/users';
+   var postdata = {};
+
+   postdata.username = username;
+   postdata.password = password;
+
+   myApp.showIndicator();
+
+   $$.ajax({
+    url: query,
+    //headers: {"X-Parse-Application-Id":applicationId,"X-Parse-REST-API-Key":restApiKey},
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(postdata),
+    statusCode: {
+     201: success201,
+     400: notsuccess,
+     500: notsuccess
+    }
+   });
+
+
+  });
+
+
+
+
+
+
 
 })
 
