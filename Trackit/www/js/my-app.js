@@ -25,6 +25,13 @@ myApp.onPageInit('about', function (page) {
 
 })
 
+myApp.onPageInit('login', function (page) {
+    // Do something here for "about" page
+
+})
+
+
+
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
     // Get page data from event data
