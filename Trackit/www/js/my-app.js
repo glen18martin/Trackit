@@ -16,6 +16,26 @@ $$(document).on('deviceready', function() {
     console.log("Device is ready!");
 });
 
+if(localStorage.getItem('username') == null){
+   $('.login p').html('Login');
+}
+else
+{
+	$('.login p').html('Logout');
+}
+
+$(document).on('click','.login',function(){
+	
+if(localStorage.getItem('username') == null){
+   window.location.href="login.html";
+}
+else
+{
+	localStorage.removeItem('username');
+	window.location.href="index.html";
+}
+});
+
 
 // Now we need to run the code that will be executed only for About page.
 
@@ -24,6 +44,14 @@ myApp.onPageInit('about', function (page) {
     // Do something here for "about" page
 
 })
+
+myApp.onPageInit('cndtr', function (page) {
+    // Do something here for "about" page
+if(localStorage.getItem('username') == null){
+   window.location.href="login.html";
+}
+})-
+
 
 myApp.onPageInit('login', function (page) {
 
@@ -79,7 +107,7 @@ if(data=="success")
 {
 localStorage.login="true";
 localStorage.username=username;
-window.location.href = "index.html";
+window.location.href = "cndtr.html";
 }
 else if(data="failed")
 {
