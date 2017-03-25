@@ -1,9 +1,12 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src * data: 'unsafe-inline'">
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -50,5 +53,6 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap"
     async defer></script>
+    <script src="js/geocal.js"></script>
   </body>
 </html>
