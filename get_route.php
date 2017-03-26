@@ -72,6 +72,21 @@ if(isset($_GET['routeid'])) {
 }
 
 
+if(isset($_GET['getbuscord'])) {
+
+    $result = $conn->query("SELECT coords FROM route where name like '%" . $_GET['getbuscord'] . "%'");
+
+    if($result->num_rows > 0) {
+
+        $row = $result->fetch_assoc();
+        echo $row['coords'];
+        
+
+    }
+
+    die;
+}
+
 
 $result = $conn->query("SELECT * FROM route");
 

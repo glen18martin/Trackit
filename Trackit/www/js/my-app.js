@@ -22,6 +22,7 @@ if (localStorage.getItem('username') == null) {
     $('.login p').html('Logout');
 }
 
+
 $(document).on('click', '.login', function() {
 
     if (localStorage.getItem('username') == null) {
@@ -95,23 +96,24 @@ myApp.onPageInit('login', function(page) {
 
     $$('#submmit-register').on('click', function() {
 
-        var username = $$('#register-username').val();
-        var password = $$('#register-password').val();
 
-        if (!username || !password) {
-            myApp.alert('Please fill in all Login form fields', 'Trackit');
-            return;
-        }
+   var username = $$('#register-username').val();
+   var password = $$('#register-password').val();
 
-
-
-        // Do something here for "about" page
-        var query = 'http://10.0.4.236/hack/login.php';
+   if (!username || !password){
+    myApp.alert('Please fill in all Login form fields','Trackit');
+    return;
+   }
 
 
+   // Do something here for "about" page
+   var query = 'http://10.0.4.236/hack/login.php';
 
-        var dataString = "username=" + username + "&password=" + password + "&login=";
-        myApp.showIndicator();
+
+	var dataString="username="+username+"&password="+password+"&login=";
+   myApp.showIndicator();
+
+
 
         /*
    $$.ajax({
@@ -130,6 +132,7 @@ myApp.onPageInit('login', function(page) {
    });
 
    */
+
 
 
         $.ajax({
@@ -198,21 +201,18 @@ $$(document).on('pageInit', '.page[data-page="about"]', function(e) {
 var selectedBusNo, selectedStopNo;
 
 
-function getBusNo() {
-    return selectedBusNo;
-}
+
 
 
 myApp.onPageInit('sample', function(page) {
-    //myApp.alert("LOL");
 
-    console.log(selectedBusNo + "  " + selectedStopNo);
 
-    document.getElementById('mapp').contentWindow.bgColor = "Red"; //hello("test");
-
+    //document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
+    //console.log( document.getElementById('mapp').contentWindow);
 });
 
 myApp.onPageInit('passenger_route', function(page) {
+
 
     $('#busno').change(function() {
         var value = $(this).val();
@@ -220,29 +220,32 @@ myApp.onPageInit('passenger_route', function(page) {
 
         $.ajax({
 
+         
             url: "http://10.0.4.236/hack/get_route.php?route=" + value
         }).done(function(data) {
+            data = JSON.parse(data);
+                for(var i = 0; i < data.length; i++) {
 
 
-            var routes = [];
-            var data = JSON.parse(data);
+                        jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
+                }
+            });
 
-            for (var i = 0; i < data.length; i++) {
-                jQuery("#stopno").append("<option>" + data[i].name + "</option>");
-            }
         });
-
-    });
 
 
 
     $('#stopno').change(function() {
         var value = $(this).val();
         selectedStopNo = value;
-    });
+
+        $("#sendx").html(selectedBusNo + "," + selectedStopNo);
+
+        });
 
 
     $.ajax({
+
         url: "http://10.0.4.236/hack/get_route.php?buslist=1"
     }).done(function(data) {
 
