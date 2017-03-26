@@ -78,14 +78,8 @@ if(isset($_GET['getbuscord'])) {
 
     if($result->num_rows > 0) {
 
-        $arr = array();
-
-        while($row = $result->fetch_assoc()) {
-            array_push($arr, $row);
-        }
-
-        echo json_encode($arr);
-        
+        $row = $result->fetch_assoc();
+        echo $row['coords'];
         
 
     }

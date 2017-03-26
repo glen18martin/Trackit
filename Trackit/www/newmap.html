@@ -37,7 +37,7 @@
             var mystop = parent.document.getElementsByTagName("span")[0].innerHTML.split(",")[1];
             console.log(parent.document.getElementsByTagName("span")[0].innerHTML);
             var mystopname = parent.document.getElementsByTagName("span")[0].innerHTML.split(",")[2];
-
+            var mystopmarker;
             setInterval(function() {
 
                  $.ajax({
@@ -68,19 +68,18 @@
 
             },1000);
 
-
+            console.log(mystopname);
             $.ajax({
-              url: "http://10.0.4.236/hack/testing_get.php?getbuscord=" + mystopname
+              url: "http://10.0.4.236/hack/get_route.php?getbuscord=" + mystopname.substr(1)
             }).done(function(data) {
               
               
-              var data = JSON.parse(data);
+              //var data = JSON.parse(data);
 
               
                   var coords = data.split(",");
-                  console.log(coords);
-                  marker[i].setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
-                  map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+                  console.log("HERE: " + data);
+                  mystopmarker.setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
               
               
               
@@ -90,11 +89,11 @@
 
            // alert(parent.document.getElementById(window.name).getBusNo());//getElementById(window.name);
 
-            // var lat = 19.069238;
-            // var lng = 72.898302;
-            // var From = "ABC";
-            // var To = "XYZ";
-            // var busno = 53;
+        var lat = 19.069238;
+        var lng = 72.898302;
+        var From = "ABC";
+        var To = "XYZ";
+        var busno = 53;
             map = new google.maps.Map(document.getElementById('map'), {
 
                 center: {
@@ -116,12 +115,12 @@
         }
             getLocation();
 
-                mystop = new google.maps.Marker({
+                mystopmarker = new google.maps.Marker({
             position: new google.maps.LatLng(0,0),
             map: map
             // icon: 'http://icons.iconarchive.com/icons/icons8/ios7/32/Transport-Bus-icon.png'
             });
-                mystop.setMap(map);
+                mystopmarker.setMap(map);
        
 
 
