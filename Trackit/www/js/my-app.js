@@ -54,7 +54,37 @@ myApp.onPageInit('about', function(page) {
 })
 
 myApp.onPageInit('cndtr', function(page) {
-    // Do something here for "about" page
+    // Do something here for "cndtr" page
+
+	
+        // Do something here for "about" page
+        var query = 'http://localhost:81/Trackit/cndt.php';
+
+        var dataString = "&routeid=";
+        myApp.showIndicator();
+
+        $.ajax({
+            type: "GET",
+            url: query,
+			data: dataString,
+            crossDomain: true,
+            cache: false,
+            success: function(data) {
+                //if (data == "success") {
+                    myApp.alert(data);
+					
+					$('#route_id').html(data);
+                    //mainView.router.loadPage('cndtr.html');
+                    myApp.hideIndicator();
+                //} else if (data = "failed") {
+                    
+                    //myApp.alert('Server problem, please try again', 'Trackit');
+                //}
+            }
+        });
+
+	
+		
 
 })
 
