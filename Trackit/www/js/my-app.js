@@ -172,14 +172,7 @@ var selectedBusNo, selectedStopNo;
 
 
 myApp.onPageInit('sample', function(page) {
-    //myApp.alert("LOL");
-<<<<<<< HEAD
-=======
 
-    console.log(selectedBusNo + "  " + selectedStopNo);
-
-    document.getElementById('mapp').contentWindow.bgColor = "Red"; //hello("test");
->>>>>>> de43943f5a210c52f55ad3478f8211fd9ec5163d
 
     //document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
     //console.log( document.getElementById('mapp').contentWindow);
@@ -195,14 +188,16 @@ myApp.onPageInit('passenger_route', function(page) {
 
             url: "http://10.0.4.236/hack/get_route.php?route=" + value
         }).done(function(data) {
+            data = JSON.parse(data);
                 for(var i = 0; i < data.length; i++) {
+
+                        
                         jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
                 }
             });
         });
 
-    });
-
+    
 
 
     $('#stopno').change(function() {
