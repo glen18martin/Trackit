@@ -62,7 +62,7 @@ myApp.onPageInit('cndtr', function(page) {
     var query = 'http://localhost/Trackit/cndt.php';
 
     var dataString = "&routeid=";
-    myApp.showIndicator();
+   // myApp.showIndicator();
 
     $.ajax({
         type: "GET",
