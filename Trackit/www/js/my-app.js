@@ -189,8 +189,7 @@ myApp.onPageInit('passenger_route', function (page) {
         selectedBusNo = value;
 
         $.ajax({
-                url: "http://localhost/hack/get_route.php?route=" + value
-            }).done(function(data) {
+                url: "http://10.0.4.236/hack/get_route.php?route=" + valu           }).done(function(data) {
                 
                 var routes = [];
                 var data = JSON.parse(data);
@@ -211,7 +210,7 @@ myApp.onPageInit('passenger_route', function (page) {
 
 
     $.ajax({
-            url: "http://localhost/hack/get_route.php?buslist=1"
+            url: "http://10.0.4.236/hack/get_route.php?buslist=1"
           }).done(function(data) {
             
             var routes = [];
