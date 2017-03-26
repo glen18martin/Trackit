@@ -2,6 +2,7 @@
 
 // establishing the MySQLi connection
 
+header("Access-Control-Allow-Origin: *");
 
 
 $con = mysqli_connect('localhost','root','','trackit');
@@ -30,9 +31,14 @@ echo "MySQLi Connection was not established: " . mysqli_connect_error();
 // }
 // }
 
-if(isset($_POST['send']))
+$lat = $_GET['latitude'];
+$lng = $_GET['longitude'];
+
+
+if(isset($_GET['send']))
 {
-  echo "something is working";
+  echo "success";
+  file_get_contents("http://10.0.4.236/hack/testing_send.php?busid=0&ls=0&coords=" . "$lat,$lng");
 }
 
 ?>

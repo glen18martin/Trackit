@@ -28,7 +28,7 @@ console.log("Lat : "+position.coords.latitude + "and Long : "+position.coords.lo
 
 
 
-var query = 'http://localhost/hack/Trackit/sendcor.php';
+var query = 'http://10.0.4.236/hack/sendcor.php';
 
  var dataString= "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&send=";
  	//var dataString="username="+username+"&password="+password+"&login=";
@@ -54,7 +54,7 @@ var query = 'http://localhost/hack/Trackit/sendcor.php';
 
 
  $.ajax({
- type: "POST",
+ type: "GET",
  url: query,
  data: dataString,
  crossDomain: true,
@@ -66,9 +66,10 @@ var query = 'http://localhost/hack/Trackit/sendcor.php';
  // localStorage.username=username;
  // mainView.router.loadPage('cndtr.html');
  // myApp.hideIndicator();
- console.log(data);
+ 
+ console.log("Gone" + data);
  }
- else if(data="failed")
+ else if(data=="failed")
  {
  myApp.hideIndicator();
   myApp.alert('Process of sending co-ordinates was unsuccessful, please try again','Trackit');
