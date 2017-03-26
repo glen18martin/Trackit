@@ -65,7 +65,7 @@ var query = 'http://10.0.4.236/hack/sendcor.php';
  // localStorage.login="true";
  // localStorage.username=username;
  // mainView.router.loadPage('cndtr.html');
- // myApp.hideIndicator();
+ myApp.hideIndicator();
  
  console.log("Gone" + data);
  }
