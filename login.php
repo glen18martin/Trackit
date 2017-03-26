@@ -3,7 +3,7 @@
 // establishing the MySQLi connection
 
  
-
+header("Access-Control-Allow-Origin: *");
 $con = mysqli_connect('localhost','root','','trackit');
 
 if (mysqli_connect_errno())

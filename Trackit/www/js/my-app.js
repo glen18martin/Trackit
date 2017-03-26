@@ -176,11 +176,16 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 var selectedBusNo, selectedStopNo;
 
 
-
+function getBusNo() {
+    return selectedBusNo;
+}
 
 myApp.onPageInit('sample', function (page) {
-    myApp.alert("LOL");
+    //myApp.alert("LOL");
     console.log(selectedBusNo + "  " + selectedStopNo);
+
+    document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
+
 });
 
 myApp.onPageInit('passenger_route', function (page) {
