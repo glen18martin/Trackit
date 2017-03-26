@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2017 at 07:14 PM
+-- Generation Time: Mar 26, 2017 at 04:55 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.5.38
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,17 +27,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bus` (
-  `bus_id` int(20) NOT NULL,
-  `route_id` int(20) NOT NULL,
-  `start_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ;
+  `busid` int(11) NOT NULL,
+  `routeid` int(11) NOT NULL,
+  `pos` varchar(64) NOT NULL,
+  `routedir` int(11) NOT NULL,
+  `laststopno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bus`
 --
 
-INSERT INTO `bus` (`bus_id`, `route_id`, `start_time`, `current_coordinates`) VALUES
-(1, 1, '2017-03-25 08:12:06.938048', '19.062542000001,72.846400000000');
+INSERT INTO `bus` (`busid`, `routeid`, `pos`, `routedir`, `laststopno`) VALUES
+(0, 0, '19.070322,72.846535', 0, 1),
+(1, 0, '19.069872,72.846545', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -58,30 +61,23 @@ CREATE TABLE `conductor` (
 --
 
 CREATE TABLE `route` (
-  `route_id` int(20) NOT NULL,
-  `stop_no` varchar(100) NOT NULL,
-  `coordinates` varchar(100) NOT NULL
+  `routeid` int(20) NOT NULL,
+  `stopno` varchar(100) NOT NULL,
+  `coords` varchar(100) NOT NULL,
+  `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `route`
 --
 
---
--- Indexes for table `conductor`
---
-ALTER TABLE `conductor`
-  ADD PRIMARY KEY (`c_id`);
+INSERT INTO `route` (`routeid`, `stopno`, `coords`, `name`) VALUES
+(0, '0', '19.080942, 72.846655', 'Vakola Police Station'),
+(0, '1', '19.075109, 72.846604', 'Maratha Col.'),
+(0, '2', '19.067519, 72.846540', 'Cardinal G.'),
+(0, '3', '19.065107, 72.846516', 'Kherwadi'),
+(0, '4', '19.062541, 72.846471', 'Govt Col 10');
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `conductor`
---
-ALTER TABLE `conductor`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
