@@ -72,9 +72,9 @@ myApp.onPageInit('cndtr', function(page) {
         cache: false,
         success: function(data) {
             //if (data == "success") {
-            myApp.alert(data);
+            //myApp.alert(data);
 
-            $('#route_id').html(data);
+            $('#cndt_input_route').html(data);
             //mainView.router.loadPage('cndtr.html');
             myApp.hideIndicator();
             //} else if (data = "failed") {
