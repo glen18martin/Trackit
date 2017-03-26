@@ -43,5 +43,8 @@ Want to contribute? Great!
 ![alt text](/screenshots/busanim.PNG "Conductor Screen")
 ![alt text](/screenshots/map.PNG "Bus Location")
 
+# Issues
+The app currently works on web browser and is in testing phase for mobile platform
+
 # License
 See the [LICENSE](LICENSE) file for details
