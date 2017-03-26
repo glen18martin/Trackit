@@ -39,6 +39,18 @@ else
 });
 
 
+$(document).on('click','#cndtr_link',function(){
+if(localStorage.getItem('username') == null){
+   mainView.router.loadPage('login.html');
+      $('.login p').html('Login');
+}
+else
+{
+	mainView.router.loadPage('cndtr.html');
+}
+});
+
+
 // Now we need to run the code that will be executed only for About page.
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
@@ -49,10 +61,8 @@ myApp.onPageInit('about', function (page) {
 
 myApp.onPageInit('cndtr', function (page) {
     // Do something here for "about" page
-if(localStorage.getItem('username') == null){
-   mainView.router.loadPage('login.html');
-}
-})-
+
+})
 
 
 myApp.onPageInit('login', function (page) {
@@ -161,3 +171,57 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
     //myApp.alert('Here comes About page');
 })
+
+var selectedBusNo, selectedStopNo;
+
+
+
+
+myApp.onPageInit('sample', function (page) {
+    myApp.alert("LOL");
+    console.log(selectedBusNo + "  " + selectedStopNo);
+});
+
+myApp.onPageInit('passenger_route', function (page) {
+
+    $('#busno').change(function(){ 
+        var value = $(this).val();
+        selectedBusNo = value;
+
+        $.ajax({
+                url: "http://10.0.4.236/hack/get_route.php?route=" + valu           }).done(function(data) {
+                
+                var routes = [];
+                var data = JSON.parse(data);
+
+                for(var i = 0; i < data.length; i++) {
+                        jQuery("#stopno").append("<option>"+data[i].name+"</option>");
+                }
+            });
+            
+        });
+
+
+
+        $('#stopno').change(function(){ 
+        var value = $(this).val();
+        selectedStopNo = value;
+        });
+
+
+    $.ajax({
+            url: "http://10.0.4.236/hack/get_route.php?buslist=1"
+          }).done(function(data) {
+            
+            var routes = [];
+            var data = JSON.parse(data);
+
+            for(var i = 0; i < data.length; i++) {
+                    jQuery("#busno").append("<option>"+data[i].routeid+"</option>");
+            }
+          });
+
+     
+
+})
+

@@ -1,0 +1,89 @@
+
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="passenger_route" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+					
+					<div class="content-block-title"></div>
+						<div class="content-block">
+						<div class="content-block-inner">
+						<h3>Choose Bus Number</h3>
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      
+                      <div class="item-inner">
+                        <div style="color: white !important;" class="item-title label">Bus Number</div>
+                        <div class="item-input">
+					<select id="busno">
+				<option>Select...</option>
+				</select>
+					</div>
+                      </div>
+                    </div>
+                  </li>
+
+
+                  <li>
+                    <div class="item-content">
+                      
+                      <div class="item-inner">
+                        <div style="color: white !important;" class="item-title label">Bus Stop</div>
+                         <div class="item-input">
+					<select  id="stopno">
+				<option>Select...</option>
+				</select>
+					</div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+
+
+
+                <div class="row">
+
+                  <div class="col-50">
+                    <a href="testing.html" style="background-color: #E84A5A !important;" id="submit-passenger" type="submit" value="Go" class="button button-big button-fill color-red">GO</a>
+                  </div>
+                </div>
+
+						</div>
+			  </div>
+			  
+                       <!-- <div class="content-block">
+                             <p>Page content goes here</p>
+                            Link to another page
+                            <a href="about.html">About app</a>
+
+							
+							
+							
+                            <center>
+                                <p>Bus Number</p>
+                                <select style="width: 100px; height: 20px;">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                                <p>Bus Stop</p>
+                                <select style="width: 100px; height: 20px;">
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                            </select>
+                                <br><br>
+                                <a href="#"><button>GO!</button></a>
+                            </center>
+                        </div>
+						
+					-->
+                    </div>
+                </div>
+            </div>
+          

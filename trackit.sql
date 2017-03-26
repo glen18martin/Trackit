@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2017 at 04:55 AM
+-- Generation Time: Mar 26, 2017 at 06:30 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -50,8 +50,8 @@ INSERT INTO `bus` (`busid`, `routeid`, `pos`, `routedir`, `laststopno`) VALUES
 
 CREATE TABLE `conductor` (
   `c_id` int(11) NOT NULL,
-  `username` int(11) NOT NULL,
-  `password` int(11) NOT NULL
+  `username` varchar(11) NOT NULL,
+  `password` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
