@@ -31,9 +31,19 @@
     <div id="map"></div>
     <script>
         var map, marker= [], c = 0;
+        var approach;
+        var lat = 19.069238;
+        var lng = 72.898302;
+        var From = "ABC";
+        var To = "XYZ";
+        var busno = 53;
 
         function initMap() {
-            
+
+            approach = new google.maps.InfoWindow({
+                content: '<p>Bus No: ' + busno + '\n</p>' + '<p>From: ' + From + '</p>' + '<p> To: ' + To + '</p>'+'Bus Approaching'
+
+            });
             var mystop = parent.document.getElementsByTagName("span")[0].innerHTML.split(",")[1];
             console.log(parent.document.getElementsByTagName("span")[0].innerHTML);
             var mystopname = parent.document.getElementsByTagName("span")[0].innerHTML.split(",")[2];
@@ -55,6 +65,7 @@
                 }
                 var coords = data[i].split(",");
                 console.log(coords);
+                approach.open(map, marker[i]);
                 marker[i].setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
                 map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
             }
@@ -129,7 +140,13 @@
                 content: '<p>Bus No: ' + busno + '\n</p>' + '<p>From: ' + From + '</p>' + '<p> To: ' + To + '</p>'
 
             });
-            infowindow.open(map, marker);
+            // infowindow.open(map, marker[0]);
+            var approach = new google.maps.InfoWindow({
+                //content: "Bus No: "+busno+"\n\n From: "+From+" To: "+To
+                content: 'Bus Approaching'
+
+            });
+            // approach.open(map, marker[0]);
         }
     </script>
 

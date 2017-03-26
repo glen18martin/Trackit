@@ -18,7 +18,7 @@ if (!$conn){
 
                                 if (mysqli_num_rows($result) > 0) {
                                     // output data of each row
-                                    $select= '<select name="select" style="width: 250px; height: 20px;">';
+                                    $select= '<select name="select" style="width: 250px; height: 20px;"><option value="select">select</option>';
                                     while($row = mysqli_fetch_assoc($result)) {
                                         // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
                                         $select.='<option value="'.$row['routeid'].'">'.$row['routeid'].'</option>';

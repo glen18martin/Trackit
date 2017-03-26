@@ -59,7 +59,7 @@ myApp.onPageInit('cndtr', function(page) {
 
 
     // Do something here for "about" page
-    var query = 'http://localhost/Trackit/cndt.php';
+    var query = 'http://localhost:81/Trackit/cndt.php';
 
     var dataString = "&routeid=";
     myApp.showIndicator();
@@ -72,9 +72,9 @@ myApp.onPageInit('cndtr', function(page) {
         cache: false,
         success: function(data) {
             //if (data == "success") {
-            myApp.alert(data);
+            //myApp.alert(data);
 
-            $('#route_id').html(data);
+            $('#cndt_input_route').html(data);
             //mainView.router.loadPage('cndtr.html');
             myApp.hideIndicator();
             //} else if (data = "failed") {
@@ -84,6 +84,10 @@ myApp.onPageInit('cndtr', function(page) {
         }
     });
 
+	
+	$('#routeid').on('change',function(){
+		myApp.alert("sdads");
+	});
 
 
 
