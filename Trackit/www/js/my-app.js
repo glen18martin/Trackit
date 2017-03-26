@@ -176,16 +176,13 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 var selectedBusNo, selectedStopNo;
 
 
-function getBusNo() {
-    return selectedBusNo;
-}
+
 
 myApp.onPageInit('sample', function (page) {
     //myApp.alert("LOL");
-    console.log(selectedBusNo + "  " + selectedStopNo);
 
-    document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
-
+    //document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
+    //console.log( document.getElementById('mapp').contentWindow);
 });
 
 myApp.onPageInit('passenger_route', function (page) {
@@ -204,7 +201,7 @@ myApp.onPageInit('passenger_route', function (page) {
                 var data = JSON.parse(data);
 
                 for(var i = 0; i < data.length; i++) {
-                        jQuery("#stopno").append("<option>"+data[i].name+"</option>");
+                        jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
                 }
             });
             
@@ -215,6 +212,9 @@ myApp.onPageInit('passenger_route', function (page) {
         $('#stopno').change(function(){ 
         var value = $(this).val();
         selectedStopNo = value;
+
+        $("#sendx").html(selectedBusNo + "," + selectedStopNo);
+
         });
 
 
