@@ -37,7 +37,7 @@ $ phonegap run
 Want to contribute? Great!
 
 # ScreenShots
-![alt text](https://github.com/glen18martin/trackit/screenshots/main.png "Home Screen")
+![alt text](/screenshots/main.PNG "Home Screen")
 
 
 
