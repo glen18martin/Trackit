@@ -8,7 +8,7 @@ var $$ = Dom7;
 // Add view
 var mainView = myApp.addView('.view-main', {
     // Because we want to use dynamic navbar, we need to enable it for this view:
-    dynamicNavbar: true
+    dynamicNavbar: false
 });
 
 // Handle Cordova Device Ready Event
@@ -27,12 +27,14 @@ else
 $(document).on('click','.login',function(){
 	
 if(localStorage.getItem('username') == null){
-   window.location.href="login.html";
+   mainView.router.loadPage('login.html');
+      $('.login p').html('Login');
 }
 else
 {
 	localStorage.removeItem('username');
-	window.location.href="index.html";
+	mainView.router.loadPage('login.html');
+	$('.login p').html('Login');
 }
 });
 
@@ -48,7 +50,7 @@ myApp.onPageInit('about', function (page) {
 myApp.onPageInit('cndtr', function (page) {
     // Do something here for "about" page
 if(localStorage.getItem('username') == null){
-   window.location.href="login.html";
+   mainView.router.loadPage('login.html');
 }
 })-
 
@@ -107,7 +109,7 @@ if(data=="success")
 {
 localStorage.login="true";
 localStorage.username=username;
-window.location.href = "cndtr.html";
+mainView.router.loadPage('cndtr.html');
 }
 else if(data="failed")
 {

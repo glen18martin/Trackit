@@ -1,46 +1,91 @@
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
 
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <!-- <p>Left panel content goes here</p> -->
-            <a href="login.html">
-                <p>Login</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Awesome App</div>
-                    <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
-                </div>
-            </div>
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
                 <!-- Page, "data-page" contains page name -->
                 <div data-page="cndtr" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
+					
+					
+					
+						<div class="content-block-title"></div>
+						<div class="content-block">
+						<div class="content-block-inner">
+						<h3>Choose Bus Number</h3>
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      
+                      <div class="item-inner">
+                        <div style="color: white !important;" class="item-title label">Bus Number</div>
+                        <div class="item-input">
+                          <input style="color: white !important;" id="bus-number" type="text" placeholder="Number">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+
+                  <li>
+                    <div class="item-content">
+                      
+                      <div class="item-inner">
+                        <div style="color: white !important;" class="item-title label">Location</div>
+                         <div class="item-input">
+						<textarea></textarea>
+						</div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+
+
+
+                <div class="row">
+
+                  <div class="col-50">
+                    <input style="background-color: #E84A5A !important;" id="submmit-bus" type="submit" value="Go" class="button button-big button-fill color-red">
+                  </div>
+                </div>
+
+						</div>
+			  </div>
+			  
+			  <!--
+					<div style="margin-top:15%;" class="content-block-title"><h3>Choose Bus number</h3></div>
+				<div class="list-block inset">
+				<ul>
+			<li>
+      <div class="item-content">
+        <div class="item-inner">
+            <select id="bus_no">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+          
+        </div>
+      </div>
+    </li>
+		<li class="align-top">
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-input">
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </li>
+		 </ul>
+</div>
+<!--
                         <div class="content-block">
-                            <!-- <p>Page content goes here</p>
+                             <p>Page content goes here</p>
                             Link to another page
-                            <a href="about.html">About app</a> -->
+                            <a href="about.html">About app</a>
 
 
                             <center>
@@ -57,17 +102,8 @@
                                 <textarea></textarea><br><br>
                                 <a href="#"><button>GO!</button></a>
                             </center>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                </div>
-            </div>
-        </div>
-    </div>
+           
