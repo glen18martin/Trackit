@@ -76,7 +76,7 @@ myApp.onPageInit('login', function(page) {
 
 
         // Do something here for "about" page
-        var query = 'http://10.0.4.236/Trackit/login.php';
+        var query = 'http://10.0.4.236/hack/login.php';
 
 
         var dataString = "username=" + username + "&password=" + password + "&login=";
