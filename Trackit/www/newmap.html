@@ -23,6 +23,7 @@
             padding: 0;
         }
     </style>
+
 </head>
 
 <body id="demo">
@@ -31,6 +32,10 @@
         var map, marker;
 
         function initMap() {
+            
+
+            alert(parent.document.getBusNo());//getElementById(window.name);
+
             var lat = 19.069238;
             var lng = 72.898302;
             var From = "ABC";
@@ -104,6 +109,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap" async defer></script>
     <script src="js/geocal.js"></script>
+    
 
 </body>
 
