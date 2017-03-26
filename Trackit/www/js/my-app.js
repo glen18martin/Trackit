@@ -59,7 +59,7 @@ myApp.onPageInit('cndtr', function(page) {
 
 
     // Do something here for "about" page
-    var query = 'http://localhost:81/Trackit/cndt.php';
+    var query = 'http://localhost/Trackit/cndt.php';
 
     var dataString = "&routeid=";
     myApp.showIndicator();
@@ -84,6 +84,7 @@ myApp.onPageInit('cndtr', function(page) {
         }
     });
 
+
 	$(document).ready(function(){
 	$('document').on('change','#routeid',function(){
 		myApp.alert("sdads");
@@ -95,6 +96,8 @@ myApp.onPageInit('cndtr', function(page) {
 	
 	});
 	
+
+
 
 
 
@@ -211,6 +214,11 @@ $$(document).on('pageInit', '.page[data-page="about"]', function(e) {
     // Following code will be executed for page with data-page attribute equal to "about"
     //myApp.alert('Here comes About page');
 })
+
+myApp.onPageInit('bus', function(page) {
+startsending();
+
+});
 
 var selectedBusNo, selectedStopNo;
 
