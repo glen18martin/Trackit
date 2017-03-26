@@ -120,6 +120,7 @@ if(data=="success")
 localStorage.login="true";
 localStorage.username=username;
 mainView.router.loadPage('cndtr.html');
+myApp.hideIndicator();
 }
 else if(data="failed")
 {
