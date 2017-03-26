@@ -19,7 +19,7 @@
     <div id="map"></div>
     <script>
     let stops = [];
-      var map, marker, x = 0;
+      var map, marker, marker2, x = 0;
       function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
        
@@ -28,6 +28,12 @@
           center: uluru
         });
         marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon: 'http://icons.iconarchive.com/icons/icons8/ios7/32/Transport-Bus-icon.png'
+        });
+
+        marker2 = new google.maps.Marker({
           position: uluru,
           map: map,
           icon: 'http://icons.iconarchive.com/icons/icons8/ios7/32/Transport-Bus-icon.png'
@@ -85,7 +91,7 @@
        setInterval(function() { 
 
          $.ajax({
-            url: "bus.pos"
+            url: "bus0.pos"
           }).done(function(data) {
             if(typeof data !== "undefined" || data.length > 1 || data != null || data != "") {
                 var coords = data.split(",");
@@ -94,6 +100,23 @@
                     console.log(coords[0] + "," + coords[1]);
                     marker.setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
                     map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+
+                }
+            
+            }
+            
+          });
+
+          $.ajax({
+            url: "bus1.pos"
+          }).done(function(data) {
+            if(typeof data !== "undefined" || data.length > 1 || data != null || data != "") {
+                var coords = data.split(",");
+                if(coords[0] != "") {
+                  
+                    console.log(coords[0] + "," + coords[1]);
+                    marker2.setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+                    //map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
 
                 }
             
