@@ -104,7 +104,37 @@ myApp.onPageInit('cndtr', function(page) {
 })
 
 function calla() {
-	alert('lol');
+var query = 'http://localhost/Trackit/start_end.php';
+
+	var r_id = $('#routeid').val();
+	
+    var dataString = "routeid="+r_id+"&start_end=";
+    myApp.showIndicator();
+
+    $.ajax({
+        type: "GET",
+        url: query,
+        data: dataString,
+        crossDomain: true,
+        cache: false,
+        success: function(data) {
+			alert(data);
+            //if (data == "success") {
+            //myApp.alert(data);
+			$("#cndt_input_start").html(data);
+			$("#cndt_input_end").html(data);
+           // $('#cndt_input_route').html(data);
+            //mainView.router.loadPage('cndtr.html');
+            myApp.hideIndicator();
+            //} else if (data = "failed") {
+
+            //myApp.alert('Server problem, please try again', 'Trackit');
+            //}
+        }
+    });
+
+	
+	
 }
 
 myApp.onPageInit('login', function(page) {

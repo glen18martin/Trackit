@@ -32,7 +32,7 @@ var query = 'http://10.0.4.236/hack/sendcor.php';
 
  var dataString= "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&send=";
  	//var dataString="username="+username+"&password="+password+"&login=";
-    myApp.showIndicator();
+    //myApp.showIndicator();
 
     /*
     $$.ajax({
