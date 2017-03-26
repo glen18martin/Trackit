@@ -4,6 +4,7 @@
 
 <head>
     <title>Simple Map</title>
+    <script src="../../jquery-3.2.0.min.js"></script>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src * data: 'unsafe-inline'">
@@ -29,12 +30,46 @@
 <body id="demo">
     <div id="map"></div>
     <script>
-        var map, marker;
+        var map, marker= [], c = 0;
 
         function initMap() {
             
+            var mystop = parent.document.getElementsByTagName("span")[0].innerHTML.split(",")[1];
+            console.log(parent.document.getElementsByTagName("span")[0].innerHTML);
 
-            alert(parent.document.getBusNo());//getElementById(window.name);
+
+            setInterval(function() {
+
+                 $.ajax({
+            url: "http://localhost/hack/testing_get.php?routeid=0&imat=" + mystop 
+          }).done(function(data) {
+            
+            
+            var data = JSON.parse(data);
+
+            
+            for(var i = 0; i < data.length; i++ ) {
+                if(data[i] == "missed") {
+                     marker[i].setPosition(new google.maps.LatLng(0,0));
+                     continue;
+                }
+                var coords = data[i].split(",");
+                console.log(coords);
+                marker[i].setPosition(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+                map.panTo(new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1])));
+            }
+            
+            
+            
+          });
+
+
+
+
+            },1000);
+
+
+           // alert(parent.document.getElementById(window.name).getBusNo());//getElementById(window.name);
 
             var lat = 19.069238;
             var lng = 72.898302;
@@ -52,10 +87,14 @@
             });
             //var mapOptions = {center: myCenter, zoom: 5};
             //var map = new google.maps.Map(mapCanvas, mapOptions);
-            marker = new google.maps.Marker({
-                position: map.center
+            for(c = 0; c < 5; c++) {
+                marker[c] = new google.maps.Marker({
+            position: new google.maps.LatLng(0,0),
+            map: map,
+            icon: 'http://icons.iconarchive.com/icons/icons8/ios7/32/Transport-Bus-icon.png'
             });
-            marker.setMap(map);
+                marker[c].setMap(map);
+        }
             getLocation();
 
 
@@ -83,7 +122,7 @@
         function showPosition(position) {
             var latlon = position.coords.latitude + "," + position.coords.longitude;
             console.log(latlon);
-            marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            //marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ";
             // document.getElementById("map").innerHTML = "<img src='"+img_url+"'>";
@@ -109,6 +148,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKadAfkW-vojgLh2rpM9k4kM4aAlTEXQ&callback=initMap" async defer></script>
     <script src="js/geocal.js"></script>
+    
+
     
 
 </body>

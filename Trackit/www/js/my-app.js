@@ -168,18 +168,14 @@ $$(document).on('pageInit', '.page[data-page="about"]', function(e) {
 var selectedBusNo, selectedStopNo;
 
 
-function getBusNo() {
-    return selectedBusNo;
-}
+
 
 
 myApp.onPageInit('sample', function(page) {
-    //myApp.alert("LOL");
 
-    console.log(selectedBusNo + "  " + selectedStopNo);
 
-    document.getElementById('mapp').contentWindow.bgColor = "Red"; //hello("test");
-
+    //document.getElementById('mapp').contentWindow.bgColor="Red";//hello("test");
+    //console.log( document.getElementById('mapp').contentWindow);
 });
 
 myApp.onPageInit('passenger_route', function(page) {
@@ -192,24 +188,25 @@ myApp.onPageInit('passenger_route', function(page) {
 
             url: "http://10.0.4.236/hack/get_route.php?route=" + value
         }).done(function(data) {
+            data = JSON.parse(data);
+                for(var i = 0; i < data.length; i++) {
 
-
-            var routes = [];
-            var data = JSON.parse(data);
-
-            for (var i = 0; i < data.length; i++) {
-                jQuery("#stopno").append("<option>" + data[i].name + "</option>");
-            }
+                        
+                        jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
+                }
+            });
         });
 
-    });
-
+    
 
 
     $('#stopno').change(function() {
         var value = $(this).val();
         selectedStopNo = value;
-    });
+
+        $("#sendx").html(selectedBusNo + "," + selectedStopNo);
+
+        });
 
 
     $.ajax({
