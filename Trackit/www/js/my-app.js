@@ -84,15 +84,25 @@ myApp.onPageInit('cndtr', function(page) {
         }
     });
 
-	
-	$('#routeid').on('change',function(){
+	$(document).ready(function(){
+	$('document').on('change','#routeid',function(){
 		myApp.alert("sdads");
+	});	
+	
+	$('#routeid').change(function() {
+        myApp.alert("sdads");
+    });
+	
 	});
+	
 
 
 
 })
 
+function calla() {
+	alert('lol');
+}
 
 myApp.onPageInit('login', function(page) {
 
