@@ -38,8 +38,10 @@ Want to contribute? Great!
 
 # ScreenShots
 ![alt text](/screenshots/main.PNG "Home Screen")
-
-
+![alt text](/screenshots/login.PNG "Login Screen")
+![alt text](/screenshots/busentry.PNG "Commuter Screen")
+![alt text](/screenshots/busanim.PNG "Conductor Screen")
+![alt text](/screenshots/map.PNG "Bus Location")
 
 # License
 See the [LICENSE](LICENSE) file for details

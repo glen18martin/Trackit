@@ -154,7 +154,7 @@ myApp.onPageInit('login', function(page) {
 
 
         // Do something here for "about" page
-        var query = 'http://10.0.4.236/hack/login.php';
+        var query = 'http://localhost/trackit/login.php';
 
 
         var dataString = "username=" + username + "&password=" + password + "&login=";
@@ -273,7 +273,7 @@ myApp.onPageInit('passenger_route', function(page) {
         $.ajax({
 
 
-            url: "http://10.0.4.236/hack/get_route.php?route=" + value
+            url: "http://localhost/trackit/get_route.php?route=" + value
         }).done(function(data) {
             data = JSON.parse(data);
             for (var i = 0; i < data.length; i++) {
@@ -298,7 +298,7 @@ myApp.onPageInit('passenger_route', function(page) {
 
     $.ajax({
 
-        url: "http://10.0.4.236/hack/get_route.php?buslist=1"
+        url: "http://localhost/trackit/get_route.php?buslist=1"
     }).done(function(data) {
 
         var routes = [];
