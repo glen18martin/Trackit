@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-
+    
     <!-- Your app title -->
     <title>My App</title>
 
@@ -32,7 +32,7 @@
         #loading {
             -webkit-animation: rotation 2s infinite linear;
         }
-        
+
         @-webkit-keyframes rotation {
             from {
                 -webkit-transform: rotate(0deg);
@@ -91,12 +91,15 @@
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
                 <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
+                <div data-page="bus" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
                         <div class="content-block">
                             <center>
-                                <br><br><br><br><br><br>
+                                <br><br><br><br>
+                                <h3>Sending Bus location To Server</h3>
+
+                                <br>
 
                                 <img src="img/bus1.png" style="width: 270px; height: 200px; position:absolute;left: 12%">
 
@@ -119,6 +122,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/sendgps.js"></script>
 </body>
 
 </html>

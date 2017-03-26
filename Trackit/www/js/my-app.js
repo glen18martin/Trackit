@@ -22,6 +22,20 @@ if (localStorage.getItem('username') == null) {
     $('.login p').html('Logout');
 }
 
+<<<<<<< HEAD
+$(document).on('click','.login',function(){
+
+if(localStorage.getItem('username') == null){
+   mainView.router.loadPage('login.html');
+      $('.login p').html('Login');
+}
+else
+{
+	localStorage.removeItem('username');
+	mainView.router.loadPage('login.html');
+	$('.login p').html('Login');
+}
+=======
 $(document).on('click', '.login', function() {
 
     if (localStorage.getItem('username') == null) {
@@ -32,6 +46,7 @@ $(document).on('click', '.login', function() {
         mainView.router.loadPage('login.html');
         $('.login p').html('Login');
     }
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
 });
 
 
@@ -65,23 +80,24 @@ myApp.onPageInit('login', function(page) {
 
     $$('#submmit-register').on('click', function() {
 
-        var username = $$('#register-username').val();
-        var password = $$('#register-password').val();
 
-        if (!username || !password) {
-            myApp.alert('Please fill in all Login form fields', 'Trackit');
-            return;
-        }
+   var username = $$('#register-username').val();
+   var password = $$('#register-password').val();
 
-
-
-        // Do something here for "about" page
-        var query = 'http://10.0.4.236/hack/login.php';
+   if (!username || !password){
+    myApp.alert('Please fill in all Login form fields','Trackit');
+    return;
+   }
 
 
+   // Do something here for "about" page
+   var query = 'http://10.0.4.236/hack/login.php';
 
-        var dataString = "username=" + username + "&password=" + password + "&login=";
-        myApp.showIndicator();
+
+	var dataString="username="+username+"&password="+password+"&login=";
+   myApp.showIndicator();
+
+
 
         /*
    $$.ajax({
@@ -101,6 +117,55 @@ myApp.onPageInit('login', function(page) {
 
    */
 
+<<<<<<< HEAD
+
+$.ajax({
+type: "POST",
+url: query,
+data: dataString,
+crossDomain: true,
+cache: false,
+beforeSend: function(){ $("#login").html('Connecting...');},
+success: function(data){
+if(data=="success")
+{
+localStorage.login="true";
+localStorage.username=username;
+mainView.router.loadPage('cndtr.html');
+myApp.hideIndicator();
+}
+else if(data="failed")
+{
+myApp.hideIndicator();
+ myApp.alert('Login was unsuccessful, please try again','Trackit');
+}
+}
+});
+
+
+/*
+var success201 = function(data, textStatus, jqXHR) {
+	myApp.alert(data);
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ // Will pass context with retrieved user name
+ // to welcome page. Redirect to welcome page
+ mainView.router.load({
+ template: Template7.templates.welcomeTemplate,
+  context: {
+   name: username
+  }
+ });
+};
+
+var notsuccess = function(data, textStatus, jqXHR) {
+ // We have received response and can hide activity indicator
+ myApp.hideIndicator();
+ myApp.alert('Login was unsuccessful, please try again');
+};
+*/
+  });
+=======
 
         $.ajax({
             type: "POST",
@@ -144,6 +209,7 @@ myApp.onPageInit('login', function(page) {
         };
         */
     });
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
 })
 
 
@@ -180,27 +246,49 @@ myApp.onPageInit('sample', function(page) {
 
 myApp.onPageInit('passenger_route', function(page) {
 
+<<<<<<< HEAD
+    $('#busno').change(function(){
+=======
     $('#busno').change(function() {
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
         var value = $(this).val();
         selectedBusNo = value;
 
         $.ajax({
 
+<<<<<<< HEAD
+                url: "http://10.0.4.236/hack/get_route.php?route=" + value
+            }).done(function(data) {
+
+
+                var routes = [];
+                var data = JSON.parse(data);
+
+=======
             url: "http://10.0.4.236/hack/get_route.php?route=" + value
         }).done(function(data) {
             data = JSON.parse(data);
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
                 for(var i = 0; i < data.length; i++) {
 
-                        
+
                         jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
                 }
             });
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
         });
 
-    
 
 
+
+<<<<<<< HEAD
+        $('#stopno').change(function(){
+=======
     $('#stopno').change(function() {
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
         var value = $(this).val();
         selectedStopNo = value;
 
@@ -210,6 +298,22 @@ myApp.onPageInit('passenger_route', function(page) {
 
 
     $.ajax({
+<<<<<<< HEAD
+            url: "http://10.0.4.236/hack/get_route.php?buslist=1"
+          }).done(function(data) {
+
+            var routes = [];
+            var data = JSON.parse(data);
+
+            for(var i = 0; i < data.length; i++) {
+                    jQuery("#busno").append("<option>"+data[i].routeid+"</option>");
+            }
+          });
+
+
+
+})
+=======
         url: "http://10.0.4.236/hack/get_route.php?buslist=1"
     }).done(function(data) {
 
@@ -224,3 +328,4 @@ myApp.onPageInit('passenger_route', function(page) {
 
 
 })
+>>>>>>> 6768ebe9c21faaa94bf385ea6e38c75dbf8a5fd2
