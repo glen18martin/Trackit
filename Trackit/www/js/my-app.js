@@ -198,6 +198,11 @@ $$(document).on('pageInit', '.page[data-page="about"]', function(e) {
     //myApp.alert('Here comes About page');
 })
 
+myApp.onPageInit('bus', function(page) {
+startsending();
+
+});
+
 var selectedBusNo, selectedStopNo;
 
 
