@@ -172,11 +172,21 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     //myApp.alert('Here comes About page');
 })
 
+var selectedBusNo, selectedStopNo;
+
+
+
+
+myApp.onPageInit('sample', function (page) {
+    myApp.alert("LOL");
+    console.log(selectedBusNo + "  " + selectedStopNo);
+});
 
 myApp.onPageInit('passenger_route', function (page) {
 
     $('#busno').change(function(){ 
         var value = $(this).val();
+        selectedBusNo = value;
 
         $.ajax({
                 url: "http://localhost/hack/get_route.php?route=" + value
@@ -192,6 +202,12 @@ myApp.onPageInit('passenger_route', function (page) {
             
         });
 
+
+
+        $('#stopno').change(function(){ 
+        var value = $(this).val();
+        selectedStopNo = value;
+        });
 
 
     $.ajax({
