@@ -7,10 +7,12 @@ var watchID = null;
     var options = { timeout: 300000000 };
 
 
-    setInterval(function(){
-      watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    function startsending() {
+      setInterval(function(){
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 
-    },3000)
+      },3000);
+    }
 
 //  }
 
@@ -26,9 +28,9 @@ console.log("Lat : "+position.coords.latitude + "and Long : "+position.coords.lo
 
 
 
-var query = 'localhost/hack/Trackit/login.php';
+var query = 'http://localhost/hack/Trackit/sendcor.php';
 
- var datastring= "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&send=";
+ var dataString= "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&send=";
  	//var dataString="username="+username+"&password="+password+"&login=";
     myApp.showIndicator();
 
