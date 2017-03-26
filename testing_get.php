@@ -37,13 +37,13 @@ if($result->num_rows > 0) {
         if($row['routedir'] == 0) {
             if($atstop > $row['laststopno']) {
                 array_push($busarray, $row['pos']);
-            } else echo "NULL";
+            } else array_push($busarray,"missed");
         }
 
         if($row['routedir'] == 1) {
             if($atstop < $row['laststopno']) {
                 array_push($busarray, $row['pos']);
-            } else echo "NULL";
+            } else array_push($busarray,"missed");
         }
     }
 
