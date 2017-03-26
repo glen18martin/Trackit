@@ -25,7 +25,7 @@ else
 }
 
 $(document).on('click','.login',function(){
-	
+
 if(localStorage.getItem('username') == null){
    mainView.router.loadPage('login.html');
       $('.login p').html('Login');
@@ -73,7 +73,7 @@ myApp.onPageInit('login', function (page) {
 
    var username = $$('#register-username').val();
    var password = $$('#register-password').val();
-	
+
    if (!username || !password){
     myApp.alert('Please fill in all Login form fields','Trackit');
     return;
@@ -82,9 +82,9 @@ myApp.onPageInit('login', function (page) {
 
 
    // Do something here for "about" page
-   var query = 'http://localhost:81/Trackit/login.php';
+   var query = 'http://10.0.4.236/hack/login.php';
 
-   
+
 	var dataString="username="+username+"&password="+password+"&login=";
    myApp.showIndicator();
 
@@ -106,7 +106,7 @@ myApp.onPageInit('login', function (page) {
 
    */
 
-   
+
 $.ajax({
 type: "POST",
 url: query,
@@ -129,6 +129,7 @@ myApp.hideIndicator();
 }
 }
 });
+
 
 /*
 var success201 = function(data, textStatus, jqXHR) {
@@ -185,7 +186,7 @@ myApp.onPageInit('sample', function (page) {
 
 myApp.onPageInit('passenger_route', function (page) {
 
-    $('#busno').change(function(){ 
+    $('#busno').change(function(){
         var value = $(this).val();
         selectedBusNo = value;
 
@@ -194,7 +195,7 @@ myApp.onPageInit('passenger_route', function (page) {
                 url: "http://10.0.4.236/hack/get_route.php?route=" + value
             }).done(function(data) {
 
-                
+
                 var routes = [];
                 var data = JSON.parse(data);
 
@@ -202,12 +203,12 @@ myApp.onPageInit('passenger_route', function (page) {
                         jQuery("#stopno").append("<option>"+data[i].name+"</option>");
                 }
             });
-            
+
         });
 
 
 
-        $('#stopno').change(function(){ 
+        $('#stopno').change(function(){
         var value = $(this).val();
         selectedStopNo = value;
         });
@@ -216,7 +217,7 @@ myApp.onPageInit('passenger_route', function (page) {
     $.ajax({
             url: "http://10.0.4.236/hack/get_route.php?buslist=1"
           }).done(function(data) {
-            
+
             var routes = [];
             var data = JSON.parse(data);
 
@@ -225,7 +226,6 @@ myApp.onPageInit('passenger_route', function (page) {
             }
           });
 
-     
+
 
 })
-
