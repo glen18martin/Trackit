@@ -161,3 +161,42 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
     //myApp.alert('Here comes About page');
 })
+
+
+myApp.onPageInit('passenger_route', function (page) {
+
+    $('#busno').change(function(){ 
+        var value = $(this).val();
+
+        $.ajax({
+                url: "http://localhost/hack/get_route.php?route=" + value
+            }).done(function(data) {
+                
+                var routes = [];
+                var data = JSON.parse(data);
+
+                for(var i = 0; i < data.length; i++) {
+                        jQuery("#stopno").append("<option>"+data[i].name+"</option>");
+                }
+            });
+            
+        });
+
+
+
+    $.ajax({
+            url: "http://localhost/hack/get_route.php?buslist=1"
+          }).done(function(data) {
+            
+            var routes = [];
+            var data = JSON.parse(data);
+
+            for(var i = 0; i < data.length; i++) {
+                    jQuery("#busno").append("<option>"+data[i].routeid+"</option>");
+            }
+          });
+
+     
+
+})
+
