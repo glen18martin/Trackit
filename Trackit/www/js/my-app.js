@@ -39,6 +39,18 @@ else
 });
 
 
+$(document).on('click','#cndtr_link',function(){
+if(localStorage.getItem('username') == null){
+   mainView.router.loadPage('login.html');
+      $('.login p').html('Login');
+}
+else
+{
+	mainView.router.loadPage('cndtr.html');
+}
+});
+
+
 // Now we need to run the code that will be executed only for About page.
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
@@ -49,10 +61,8 @@ myApp.onPageInit('about', function (page) {
 
 myApp.onPageInit('cndtr', function (page) {
     // Do something here for "about" page
-if(localStorage.getItem('username') == null){
-   mainView.router.loadPage('login.html');
-}
-})-
+
+})
 
 
 myApp.onPageInit('login', function (page) {
