@@ -2,7 +2,7 @@
 
 
 <?php
-
+header("Access-Control-Allow-Origin: *");
 $busid = $_GET['busid'];
 set_time_limit(0);
 

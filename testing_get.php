@@ -1,6 +1,6 @@
 <?php
 
-
+header("Access-Control-Allow-Origin: *");
 
 //$servername = "10.0.4.136";
 //$username = "hack";
