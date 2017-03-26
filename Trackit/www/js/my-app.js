@@ -57,35 +57,35 @@ myApp.onPageInit('about', function(page) {
 myApp.onPageInit('cndtr', function(page) {
     // Do something here for "cndtr" page
 
-	
-        // Do something here for "about" page
-        var query = 'http://localhost:81/Trackit/cndt.php';
 
-        var dataString = "&routeid=";
-        myApp.showIndicator();
+    // Do something here for "about" page
+    var query = 'http://localhost/Trackit/cndt.php';
 
-        $.ajax({
-            type: "GET",
-            url: query,
-			data: dataString,
-            crossDomain: true,
-            cache: false,
-            success: function(data) {
-                //if (data == "success") {
-                    myApp.alert(data);
-					
-					$('#route_id').html(data);
-                    //mainView.router.loadPage('cndtr.html');
-                    myApp.hideIndicator();
-                //} else if (data = "failed") {
-                    
-                    //myApp.alert('Server problem, please try again', 'Trackit');
-                //}
-            }
-        });
+    var dataString = "&routeid=";
+    myApp.showIndicator();
 
-	
-		
+    $.ajax({
+        type: "GET",
+        url: query,
+        data: dataString,
+        crossDomain: true,
+        cache: false,
+        success: function(data) {
+            //if (data == "success") {
+            myApp.alert(data);
+
+            $('#route_id').html(data);
+            //mainView.router.loadPage('cndtr.html');
+            myApp.hideIndicator();
+            //} else if (data = "failed") {
+
+            //myApp.alert('Server problem, please try again', 'Trackit');
+            //}
+        }
+    });
+
+
+
 
 })
 
@@ -97,21 +97,21 @@ myApp.onPageInit('login', function(page) {
     $$('#submmit-register').on('click', function() {
 
 
-   var username = $$('#register-username').val();
-   var password = $$('#register-password').val();
+        var username = $$('#register-username').val();
+        var password = $$('#register-password').val();
 
-   if (!username || !password){
-    myApp.alert('Please fill in all Login form fields','Trackit');
-    return;
-   }
-
-
-   // Do something here for "about" page
-   var query = 'http://10.0.4.236/hack/login.php';
+        if (!username || !password) {
+            myApp.alert('Please fill in all Login form fields', 'Trackit');
+            return;
+        }
 
 
-	var dataString="username="+username+"&password="+password+"&login=";
-   myApp.showIndicator();
+        // Do something here for "about" page
+        var query = 'http://10.0.4.236/hack/login.php';
+
+
+        var dataString = "username=" + username + "&password=" + password + "&login=";
+        myApp.showIndicator();
 
 
 
@@ -220,18 +220,18 @@ myApp.onPageInit('passenger_route', function(page) {
 
         $.ajax({
 
-         
+
             url: "http://10.0.4.236/hack/get_route.php?route=" + value
         }).done(function(data) {
             data = JSON.parse(data);
-                for(var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
 
 
-                        jQuery("#stopno").append("<option>"+data[i].stopno+ ", "+data[i].name+"</option>");
-                }
-            });
-
+                jQuery("#stopno").append("<option>" + data[i].stopno + ", " + data[i].name + "</option>");
+            }
         });
+
+    });
 
 
 
@@ -241,7 +241,7 @@ myApp.onPageInit('passenger_route', function(page) {
 
         $("#sendx").html(selectedBusNo + "," + selectedStopNo);
 
-        });
+    });
 
 
     $.ajax({
