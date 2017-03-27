@@ -41,14 +41,14 @@ Want to contribute? Great!
 ![alt text](/screenshots/login.PNG "Login Screen")
 ![alt text](/screenshots/busentry.PNG "Commuter Screen")
 ![alt text](/screenshots/busanim.PNG "Conductor Screen")
-```bash
+
 ![alt text](/screenshots/hack1.png "Bus Location")  
 Shows approaching buses
-```
-```bash
+
+
 ![alt text](/screenshots/hack2.png "Bus Location after passing stop")  
 Buses are invisible after they pass the entered stop
-```
+
 
 # Issues
 The app currently works on web browser and is in testing phase for mobile platform
