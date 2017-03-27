@@ -37,13 +37,13 @@ $ phonegap run
 Want to contribute? Great!
 
 # ScreenShots
-![alt text](/screenshots/main.PNG "Home Screen")
+![alt text](/screenshots/main.PNG "Home Screen") &nbsp
 ![alt text](/screenshots/login.PNG "Login Screen")
 ![alt text](/screenshots/busentry.PNG "Commuter Screen")
 ![alt text](/screenshots/busanim.PNG "Conductor Screen")
-![alt text](/screenshots/hack1.png "Bus Location")
+![alt text](/screenshots/hack1.png "Bus Location")  
 Shows approaching buses
-![alt text](/screenshots/hack2.png "Bus Location after passing stop")
+![alt text](/screenshots/hack2.png "Bus Location after passing stop")  
 Buses are invisible after they pass the entered stop
 
 # Issues
