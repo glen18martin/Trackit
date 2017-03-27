@@ -37,7 +37,7 @@ $ phonegap run
 Want to contribute? Great!
 
 # ScreenShots
-![alt text](/screenshots/main.PNG "Home Screen")
+![alt text](/screenshots/main.PNG "Home Screen") ?ts=6
 ![alt text](/screenshots/login.PNG "Login Screen")
 ![alt text](/screenshots/busentry.PNG "Commuter Screen")
 ![alt text](/screenshots/busanim.PNG "Conductor Screen")
